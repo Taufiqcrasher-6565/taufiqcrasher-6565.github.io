@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -71,11 +72,14 @@ function sendBug() {
   const btn = document.getElementById("sendBtn");
   btn.disabled = true;
 
+  const target = document.getElementById("target").value; // ambil nomor
+
   alert("Proces...");
 
   setTimeout(() => {
     alert(
 `SUKSES BOS TARGET MAMPUS😈
+Target: ${target}
 bug success you have bug him congratulations you have bug in taufiq crasher!`
     );
     btn.disabled = false;
