@@ -13,7 +13,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: url('favicon.png') no-repeat center center/cover;
+  background: url('favicon.jpg') no-repeat center center/cover;
   filter: blur(8px);
 }
 
