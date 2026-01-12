@@ -1,64 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-    <link rel="icon" href="favicon.jpg" type="image/png">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            color: #fff;
-            font-family: monospace;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            text-align: center;
-        }
-        h2 {
-            margin-bottom: 30px;
-        }
-        button {
-            background-color: #ff0000; /* merah */
-            color: #fff;
-            border: 2px solid #8000ff; /* ungu */
-            padding: 10px 25px;
-            margin: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 0 10px #8000ff; /* garis menyala */
-        }
-        button:hover {
-            box-shadow: 0 0 20px #ff00ff; /* efek hover lebih nyala */
-            transform: scale(1.05);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="icon" href="favicon.png">
 </head>
 <body>
-    <div class="container">
-        <img src="favicon.png" alt="Logo" width="100">
-        <h2>Please Log In or Buy Access to Continue</h2>
-      
-        <button onclick="login()">Login</button>
-        <button onclick="buyAccess()">Buy Access</button>
-    </div>
+  <div class="login-container">
+    <h2>Login</h2>
 
-    <script>
-        function login() {
-            alert("Redirecting to login...");
-            // nanti diganti ke login.html
-        }
-        function buyAccess() {
-            alert("Redirecting to buy access...");
-            // nanti diganti ke halaman key/payment
-        }
-    </script>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <input type="text" id="key" placeholder="Key Access">
+
+    <button class="btn login-btn" onclick="checkLogin()">Login</button>
+
+    <!-- TULISAN TAMBAHAN -->
+    <p class="info-text">
+      Login harus menggunakan <b>username, password, dan key</b><br>
+      yang sudah diberikan oleh <b>owner</b>.
+    </p>
+  </div>
+
+  <script src="login.js"></script>
 </body>
-  </html>
+</html>
