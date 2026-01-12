@@ -1,0 +1,48 @@
+/* login.css */
+
+/* Body */
+body {
+    background-color: #000; /* background hitam */
+    color: #fff; /* teks putih */
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Favicon foto di atas */
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+/* Tulisan "Please Log In or Buy Access" */
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+}
+
+/* Tombol login dan buy access */
+button {
+    background-color: red; /* merah */
+    color: #fff;
+    border: 2px solid purple; /* garis ungu */
+    padding: 15px 30px;
+    font-size: 1rem;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+/* Hover tombol */
+button:hover {
+    box-shadow: 0 0 10px purple;
+    transform: scale(1.05);
+}
