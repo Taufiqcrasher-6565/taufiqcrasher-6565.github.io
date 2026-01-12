@@ -1,27 +1,16 @@
-// login.js
+const USERNAME = "c55#/.git";
+const PASSWORD = "root@999";
+const KEY      = "k9k1hv8";
 
-// Simulasi key owner / key valid
-const validKey = "/.vinxxsevto";
+function login() {
+  const u = document.getElementById("username").value;
+  const p = document.getElementById("password").value;
+  const k = document.getElementById("key").value;
 
-// Tombol
-const loginBtn = document.getElementById("login-btn");
-const buyBtn = document.getElementById("buy-btn");
-
-// Event tombol login
-loginBtn.addEventListener("click", () => {
-    const inputKey = prompt("Enter your access key:");
-    if (inputKey === validKey) {
-        alert("Access Granted! Welcome owner.");
-        // Simpan info login ke localStorage (buat tes HP member)
-        localStorage.setItem("loggedIn", "true");
-        // Bisa redirect ke halaman console.html
-        window.location.href = "console.html";
-    } else {
-        alert("Invalid key!");
-    }
-});
-
-// Tombol Buy Access
-buyBtn.addEventListener("click", () => {
-    alert("Please contact the owner to get your key.");
-});
+  if (u === USERNAME && p === PASSWORD && k === KEY) {
+    localStorage.setItem("login", "true");
+    location.href = "index.html"; // tampilan bug
+  } else {
+    alert("Login gagal. Data harus sesuai dari owner.");
+  }
+}
