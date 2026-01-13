@@ -6,33 +6,35 @@
 <style>
 *{box-sizing:border-box}
 html,body{
-  margin:0; height:100%;
+  margin:0;height:100%;
+  background:#000;
   font-family:Arial, sans-serif;
-  background:#0b0616;
+  overflow:hidden; /* kunci supaya ga melebar */
 }
 
-/* VIDEO STYLE: tengah tajam, kiri-kanan blur */
-.wrap{position:relative; min-height:100vh; overflow:hidden}
+/* ===== VIDEO STYLE (blur kiri kanan) ===== */
+.wrap{position:relative;height:100vh;overflow:hidden}
 .bg{
   position:absolute; inset:0;
   background:linear-gradient(180deg,#6d28d9,#1e003a);
-  filter:blur(26px) brightness(.55);
-  transform:scale(1.15);
+  filter:blur(28px) brightness(.55);
+  transform:scale(1.2);
 }
 .main{
   position:relative; z-index:2;
   display:flex; justify-content:center;
 }
 
-/* APP */
+/* ===== APP HP (TERKUNCI) ===== */
 .app{
-  width:360px; min-height:100vh;
+  width:360px; min-width:360px; max-width:360px;
+  min-height:100vh;
   padding:14px;
   background:linear-gradient(180deg,#2a0a4a,#12071f);
   color:#fff;
 }
 
-/* HEADER PROFILE */
+/* ===== PROFILE ===== */
 .profile{
   background:linear-gradient(135deg,#a855f7,#7c3aed);
   border-radius:14px;
@@ -40,53 +42,42 @@ html,body{
   display:flex; align-items:center; gap:10px;
 }
 .avatar{
-  width:44px; height:44px; border-radius:50%;
-  background:#000 url('https://i.imgur.com/8QfQYQy.png') center/cover;
-}
-.badge{
-  font-size:11px; background:rgba(0,0,0,.3);
-  padding:3px 8px; border-radius:20px;
-}
-
-/* BANNER */
-.banner{
-  margin:14px 0;
-  border-radius:16px;
-  overflow:hidden;
+  width:44px;height:44px;border-radius:50%;
   background:#000;
 }
-.banner img{
-  width:100%; display:block;
+.badge{
+  font-size:11px;background:rgba(0,0,0,.3);
+  padding:3px 8px;border-radius:20px;
 }
 
-/* PANEL */
+/* ===== BANNER ===== */
+.banner{margin:14px 0;border-radius:16px;overflow:hidden}
+.banner img{width:100%;display:block}
+
+/* ===== PANEL ===== */
 .panel{
   background:rgba(255,255,255,.05);
   border-radius:16px;
   padding:14px;
 }
-.panel h3{
-  margin:0 0 10px; font-size:15px; opacity:.9;
-}
-label{font-size:12px; opacity:.8}
+.panel h3{margin:0 0 10px;font-size:15px;opacity:.9}
+label{font-size:12px;opacity:.8}
 .field{
-  background:#000; border-radius:10px;
-  padding:10px; margin:6px 0 12px;
-  display:flex; align-items:center; gap:8px;
+  background:#000;border-radius:10px;
+  padding:10px;margin:6px 0 12px;
+  display:flex;align-items:center;gap:8px;
 }
-.field input, .field select{
-  flex:1; background:none; border:none; outline:none;
-  color:#fff; font-size:14px;
+.field input,.field select{
+  flex:1;background:none;border:none;outline:none;
+  color:#fff;font-size:14px;
 }
 
-/* BUTTON */
+/* ===== BUTTON ===== */
 .btn{
-  margin-top:12px;
-  width:100%; padding:12px;
-  border:none; border-radius:14px;
+  margin-top:12px;width:100%;padding:12px;
+  border:none;border-radius:14px;
   background:linear-gradient(135deg,#c084fc,#a855f7);
-  color:#000; font-weight:bold;
-  cursor:pointer;
+  color:#000;font-weight:bold;cursor:pointer;
 }
 </style>
 </head>
@@ -110,9 +101,9 @@ label{font-size:12px; opacity:.8}
         </div>
       </div>
 
-      <!-- BANNER -->
+      <!-- BANNER (LOKAL) -->
       <div class="banner">
-        <img src="https://i.imgur.com/9QeYH5g.jpeg" alt="banner">
+        <img src="banner1.jpg" alt="banner">
       </div>
 
       <!-- CONTROL PANEL -->
@@ -132,7 +123,7 @@ label{font-size:12px; opacity:.8}
             <option>FORCECLOSE</option>
             <option>VIRTEX</option>
             <option>FREEZE</option>
-            <option>DELAY INVISIBLE</option>
+            <option>BLANK HRAD</option>
           </select>
         </div>
 
@@ -144,4 +135,4 @@ label{font-size:12px; opacity:.8}
 </div>
 
 </body>
-            </html>
+          </html>
