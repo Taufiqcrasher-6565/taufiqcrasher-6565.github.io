@@ -1,107 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TAUFIQ CRASHER</title>
-<style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    background: url('favicon.jpg') no-repeat center center fixed;
-    background-size: cover;
-    filter: blur(8px);
-    position: relative;
-    color: #fff;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taufiq Crasher Bug</title>
+  <link rel="icon" href="favicon.jpg" type="image/jpeg">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
 
-  body::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: url('favicon.jpg') no-repeat center center;
-    background-size: cover;
-    filter: blur(8px);
-    z-index: -1;
-  }
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('favicon.jpg') no-repeat center center;
+      background-size: cover;
+      filter: blur(8px);
+      z-index: -1;
+    }
 
-  .center-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 400px;
-    background: rgba(0,0,0,0.7);
-    border-radius: 15px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 0 15px rgba(255,0,255,0.5);
-  }
+    .center-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 400px;
+      background: rgba(0,0,0,0.7);
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255,0,255,0.5);
+    }
 
-  select, button {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 10px;
-    margin-top: 15px;
-    border: 2px solid #ff00ff;
-    background: #ff0000;
-    color: #fff;
-    cursor: pointer;
-  }
+    select, button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 10px;
+      margin-top: 15px;
+      border: 2px solid #ff00ff;
+      background: #ff0000;
+      color: #fff;
+      cursor: pointer;
+    }
 
-  .proses-box {
-    margin-top: 20px;
-    padding: 15px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 10px;
-    display: none;
-  }
+    .proses-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: none;
+    }
 
-  .proses-box p {
-    margin: 5px 0;
-  }
-</style>
+    .banner {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .banner div {
+      min-width: 150px;
+      height: 100px;
+      background: #222;
+      border-radius: 10px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .banner div span {
+      position: absolute;
+      bottom: 5px;
+      font-size: 12px;
+      color: #ff0;
+    }
+
+    .account-info {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.1);
+      padding: 15px;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
 
-<div class="center-box">
-  <h2>TAUFIQ CRASHER</h2>
-  <p>Number</p>
-  <p>Select bug by Taufiqcrasher</p>
-  
-  <select id="bugSelect">
-    <option value="delay_invisible">Delay invisible</option>
-    <option value="crash">Crash</option>
-    <option value="forclose">Forclose</option>
-    <option value="blank_hard">Blank hard</option>
-  </select>
+  <div class="center-box">
+    <h2>Select Bug by Taufiq Crasher</h2>
+    <select id="bugSelect">
+      <option value="Delay Invisible">Delay Invisible</option>
+      <option value="Crash">Crash</option>
+      <option value="Forclose">Forclose</option>
+      <option value="Blank Hard">Blank Hard</option>
+    </select>
+    <button id="sendBugBtn">Send Bug</button>
 
-  <button id="sendBug">Send Bug</button>
+    <div class="proses-box" id="prosesBox">
+      <p>Proses... 5 detik</p>
+    </div>
 
-  <div class="proses-box" id="prosesBox">
-    <p id="prosesText">Proses 5 detik...</p>
+    <div class="banner" id="bannerContainer">
+      <div>Bug <span>Banner 1</span></div>
+      <div>Crash V1 <span>Banner 2</span></div>
+      <div>Delay Invisible <span>Banner 3</span></div>
+      <div>Forclose <span>Banner 4</span></div>
+    </div>
+
+    <div class="account-info">
+      <p>User: *********</p>
+      <p>Status: Premium</p>
+    </div>
   </div>
-</div>
 
-<script>
-const sendBtn = document.getElementById('sendBug');
-const prosesBox = document.getElementById('prosesBox');
-const prosesText = document.getElementById('prosesText');
+  <script>
+    const sendBtn = document.getElementById('sendBugBtn');
+    const prosesBox = document.getElementById('prosesBox');
 
-sendBtn.addEventListener('click', () => {
-  prosesBox.style.display = 'block';
-  prosesText.textContent = 'Proses 5 detik...';
+    sendBtn.addEventListener('click', () => {
+      prosesBox.style.display = 'block';
+      prosesBox.querySelector('p').textContent = 'Proses... 5 detik';
+      setTimeout(() => {
+        prosesBox.querySelector('p').textContent = 'SUKSES 👍 Target Sudah ketar ketir\nTerima Kasih sudah bug di Taufiq Crasher';
+      }, 5000);
+    });
 
-  setTimeout(() => {
-    prosesText.innerHTML = 'SUKSES 👍<br>Target Sudah ketar ketir<br>Terima Kasih sudah bug di Taufiq Crasher';
-  }, 5000); // 5 detik
-});
-</script>
+    // Banner bisa di klik
+    const banners = document.querySelectorAll('.banner div');
+    banners.forEach(b => {
+      b.addEventListener('click', () => {
+        alert('Banner: ' + b.textContent.trim());
+      });
+    });
+  </script>
 
 </body>
 </html>
