@@ -1,164 +1,56 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>TAUFIQ CRASHER</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/jpeg" href="favicon.jpg">
-  
-<script>
-  if (localStorage.getItem("login") !== "true") {
-    location.href = "login.html";
-  }
-</script>
-  
-<!-- PWA -->
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#000000">
-
-<style>
-  /* Background layer */
-  body {
-    margin: 0;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    background: url('favicon.jpg') no-repeat center center fixed;
-    background-size: cover;
-    position: relative;
-  }
-
-  /* overlay blur background */
-  .bg-blur {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: url('favicon.jpg') no-repeat center center;
-    background-size: cover;
-    filter: blur(5px);
-    z-index: 0;
-  }
-
-  /* Content layer */
-  .content {
-    position: relative;
-    z-index: 1;
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
-    color: #fff;
-  }
-
-  img.logo {
-    width: 150px;
-    height: auto;
-    margin-bottom: 20px;
-    border-radius: 10px;
-  }
-
-  h1 { font-size: 2.2em; margin-bottom: 20px; }
-
-  /* Kotak input & select */
-  .input-box {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 10px;
-    background: rgba(34,34,34,0.9);
-    border: 2px solid #e53935;
-    color: #fff;
-    font-size: 1em;
-    box-sizing: border-box;
-  }
-
-  button {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    background: #e53935;
-    color: white;
-    cursor: pointer;
-  }
-
-  button:disabled { background: #555; cursor: not-allowed; }
-
-  /* Kotak modal */
-  #modal {
-    display: none;
-    position: fixed;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(34,34,34,0.95);
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 300px;
-    color: #fff;
-    font-size: 16px;
-    text-align: center;
-    box-shadow: 0 0 15px #e53935;
-    z-index: 2;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAUFIQ CRASHER</title>
+  <link rel="icon" href="favicon.jpg">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Menu atas -->
+  <div class="top-menu">
+    <button class="menu-btn">Login</button>
+    <button class="menu-btn">Data</button>
+    <button class="menu-btn">Crash</button>
+    <button class="menu-btn">Delay</button>
+  </div>
 
-<div class="bg-blur"></div>
+  <!-- Kotak tengah -->
+  <div class="middle-box">
+    <span class="active-sender">Active | Sender</span>
+  </div>
 
-<div class="content">
-  <img src="favicon.jpg" alt="Logo" class="logo">
-  <h1>TAUFIQ CRASHER</h1>
+  <!-- Banner geser -->
+  <div class="banner-wrapper">
+    <button class="scroll-btn" id="scroll-left">&#10094;</button>
+    <div class="banner-container">
+      <div class="banner-item">
+        <img src="banner1.jpg" alt="Bug">
+        <span class="banner-name">Bug</span>
+      </div>
+      <div class="banner-item">
+        <img src="banner2.jpg" alt="Crash V1">
+        <span class="banner-name">Crash V1</span>
+      </div>
+      <div class="banner-item">
+        <img src="banner3.jpg" alt="Delay Invisible">
+        <span class="banner-name">Delay Invisible</span>
+      </div>
+      <div class="banner-item">
+        <img src="banner4.jpg" alt="Forceclose">
+        <span class="banner-name">Forceclose</span>
+      </div>
+    </div>
+    <button class="scroll-btn" id="scroll-right">&#10095;</button>
+  </div>
 
-  <label>Target Number</label><br>
-  <input type="text" id="target" placeholder="Masukan no target" class="input-box"><br>
+  <!-- Account statik -->
+  <div class="account-box">
+    <p>User: *********</p>
+    <p>Premium</p>
+  </div>
 
-  <label>Select Bug</label><br>
-  <select id="typeBug" class="input-box">
-    <option>Blank Hard</option>
-    <option>Force Close 24 Jam</option>
-    <option>Delay Parah</option>
-    <option>Crash Virtex</option>
-    <option>Freeze Chat</option>
-    <option>Lag Extreme</option>
-    <option>UI Error</option>
-    <option>Fake Disconnect</option>
-    <option>Ghost Message</option>
-  </select><br>
-
-  <button id="sendBtn" onclick="sendBug()">SEND BUG</button>
-</div>
-
-<div id="modal"></div>
-
-<script>
-function sendBug() {
-  const btn = document.getElementById("sendBtn");
-  const modal = document.getElementById("modal");
-  const target = document.getElementById("target").value;
-  const bug = document.getElementById("typeBug").value;
-
-  btn.disabled = true;
-  modal.style.display = "block";
-  modal.textContent = "Proces... ⏳";
-
-  setTimeout(() => {
-    modal.innerHTML = `SUKSES BOS TARGET MAMPUS😈<br>
-Target: ${target}<br>
-Bug success you have bug him congratulations you have bug in taufiq crasher!`;
-    btn.disabled = false;
-  }, 5000);
-}
-
-// optional: register service worker (PWA offline)
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js')
-  .then(() => console.log('Service Worker registered'))
-  .catch(err => console.log('Service Worker failed', err));
-}
-</script>
-
+  <script src="script.js"></script>
 </body>
-  </html>
+</html>
