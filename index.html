@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>MAFIA JORFIQ 👾😈☠️</title>
 <style>
-body, html {
+html, body {
   margin:0; padding:0;
   height:100%; width:100%;
   font-family:Arial, sans-serif;
@@ -23,11 +23,13 @@ body::before {
 .card {
   position:relative; z-index:1;
   background:rgba(2,6,23,0.85);
-  padding:25px;
+  padding:20px;
   border-radius:12px;
-  width:320px;
+  width:90%;
+  max-width:360px; /* compact mobile look */
   text-align:center;
   color:white;
+  box-sizing:border-box;
 }
 
 h1 {
@@ -43,6 +45,7 @@ input, select, button {
   border:none;
   outline:none;
   font-size:14px;
+  box-sizing:border-box;
 }
 
 input, select {
@@ -91,9 +94,11 @@ button {
   <input type="text" placeholder="𝙽𝚞𝚖𝚋𝚎𝚛: {ini wajib diisi}" id="number">
   <select id="bug-select">
     <option>𝐒𝐞𝐥𝐞𝐜𝐭 𝐛𝐮𝐠👾</option>
-    <option>Bug 1</option>
-    <option>Bug 2</option>
-    <option>Bug 3</option>
+    <option>Crash</option>
+    <option>Forceclose</option>
+    <option>Virtex</option>
+    <option>Freeze</option>
+    <option>Blank Hrad</option>
   </select>
   
   <div style="height:15px;"></div>
