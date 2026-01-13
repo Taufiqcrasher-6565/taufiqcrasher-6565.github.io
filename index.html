@@ -4,15 +4,104 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TAUFIQ CRASHER</title>
-<link rel="stylesheet" href="style.css">
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: url('favicon.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(8px);
+    position: relative;
+    color: #fff;
+  }
+
+  body::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('favicon.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(8px);
+    z-index: -1;
+  }
+
+  .center-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255,0,255,0.5);
+  }
+
+  select, button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: 2px solid #ff00ff;
+    background: #ff0000;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .proses-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    display: none;
+  }
+
+  .proses-box p {
+    margin: 5px 0;
+  }
+</style>
 </head>
 <body>
-  <div class="banner-wrapper">
-    <button id="prev" class="scroll-btn">❮</button>
-    <div class="banner-container"></div>
-    <button id="next" class="scroll-btn">❯</button>
-  </div>
 
-  <script src="index.js"></script>
+<div class="center-box">
+  <h2>TAUFIQ CRASHER</h2>
+  <p>Number</p>
+  <p>Select bug by Taufiqcrasher</p>
+  
+  <select id="bugSelect">
+    <option value="delay_invisible">Delay invisible</option>
+    <option value="crash">Crash</option>
+    <option value="forclose">Forclose</option>
+    <option value="blank_hard">Blank hard</option>
+  </select>
+
+  <button id="sendBug">Send Bug</button>
+
+  <div class="proses-box" id="prosesBox">
+    <p id="prosesText">Proses 5 detik...</p>
+  </div>
+</div>
+
+<script>
+const sendBtn = document.getElementById('sendBug');
+const prosesBox = document.getElementById('prosesBox');
+const prosesText = document.getElementById('prosesText');
+
+sendBtn.addEventListener('click', () => {
+  prosesBox.style.display = 'block';
+  prosesText.textContent = 'Proses 5 detik...';
+
+  setTimeout(() => {
+    prosesText.innerHTML = 'SUKSES 👍<br>Target Sudah ketar ketir<br>Terima Kasih sudah bug di Taufiq Crasher';
+  }, 5000); // 5 detik
+});
+</script>
+
 </body>
 </html>
