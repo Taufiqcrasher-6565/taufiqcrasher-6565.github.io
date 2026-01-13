@@ -4,139 +4,144 @@
 <meta charset="UTF-8">
 <title>MAFIA JORFIQ 👾😈☠️</title>
 <style>
-html, body {
-  margin:0; padding:0;
-  height:100%; width:100%;
-  display:flex; justify-content:center; align-items:center;
+*{box-sizing:border-box}
+html,body{
+  margin:0; height:100%;
   font-family:Arial, sans-serif;
-  background:url('favicon.jpg') no-repeat center center/cover;
+  background:#0b0616;
+}
+
+/* VIDEO STYLE: tengah tajam, kiri-kanan blur */
+.wrap{position:relative; min-height:100vh; overflow:hidden}
+.bg{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg,#6d28d9,#1e003a);
+  filter:blur(26px) brightness(.55);
+  transform:scale(1.15);
+}
+.main{
+  position:relative; z-index:2;
+  display:flex; justify-content:center;
+}
+
+/* APP */
+.app{
+  width:360px; min-height:100vh;
+  padding:14px;
+  background:linear-gradient(180deg,#2a0a4a,#12071f);
+  color:#fff;
+}
+
+/* HEADER PROFILE */
+.profile{
+  background:linear-gradient(135deg,#a855f7,#7c3aed);
+  border-radius:14px;
+  padding:12px;
+  display:flex; align-items:center; gap:10px;
+}
+.avatar{
+  width:44px; height:44px; border-radius:50%;
+  background:#000 url('https://i.imgur.com/8QfQYQy.png') center/cover;
+}
+.badge{
+  font-size:11px; background:rgba(0,0,0,.3);
+  padding:3px 8px; border-radius:20px;
+}
+
+/* BANNER */
+.banner{
+  margin:14px 0;
+  border-radius:16px;
   overflow:hidden;
+  background:#000;
+}
+.banner img{
+  width:100%; display:block;
 }
 
-body::before {
-  content:"";
-  position:absolute;
-  top:0; left:0; right:0; bottom:0;
-  backdrop-filter:blur(8px);
-  z-index:0;
+/* PANEL */
+.panel{
+  background:rgba(255,255,255,.05);
+  border-radius:16px;
+  padding:14px;
+}
+.panel h3{
+  margin:0 0 10px; font-size:15px; opacity:.9;
+}
+label{font-size:12px; opacity:.8}
+.field{
+  background:#000; border-radius:10px;
+  padding:10px; margin:6px 0 12px;
+  display:flex; align-items:center; gap:8px;
+}
+.field input, .field select{
+  flex:1; background:none; border:none; outline:none;
+  color:#fff; font-size:14px;
 }
 
-.card {
-  position:relative; z-index:1;
-  background:rgba(2,6,23,0.85);
-  padding:20px;
-  border-radius:12px;
-  width:360px; /* fixed HP width */
-  text-align:center;
-  color:white;
-  box-sizing:border-box;
-}
-
-h1 {
-  font-size:20px;
-  margin-bottom:15px;
-}
-
-input, select, button {
-  width:100%;
-  padding:8px;
-  margin:5px 0;
-  border-radius:6px;
-  border:none;
-  outline:none;
-  font-size:14px;
-  box-sizing:border-box;
-}
-
-input, select {
-  background:#111;
-  color:white;
-}
-
-button {
-  background:#22c55e;
-  color:black;
+/* BUTTON */
+.btn{
+  margin-top:12px;
+  width:100%; padding:12px;
+  border:none; border-radius:14px;
+  background:linear-gradient(135deg,#c084fc,#a855f7);
+  color:#000; font-weight:bold;
   cursor:pointer;
-  font-weight:bold;
-}
-
-#loading {
-  display:none;
-  margin-top:15px;
-}
-
-#user-info {
-  background:#111;
-  padding:10px;
-  border-radius:8px;
-  margin-top:15px;
-  text-align:left;
-  font-size:13px;
-  line-height:1.5;
-}
-
-#success-box {
-  display:none;
-  background:#1e293b;
-  padding:15px;
-  border-radius:10px;
-  margin-top:15px;
-  font-size:13px;
-  white-space:pre-line;
-  line-height:1.4;
 }
 </style>
 </head>
 <body>
 
-<div class="card">
-  <h1>MAFIA JORFIQ 👾😈☠️</h1>
-  <input type="text" placeholder="𝙽𝚞𝚖𝚋𝚎𝚛: {ini wajib diisi}" id="number">
-  <select id="bug-select">
-    <option>𝐒𝐞𝐥𝐞𝐜𝐭 𝐛𝐮𝐠👾</option>
-    <option>Crash</option>
-    <option>Forceclose</option>
-    <option>Virtex</option>
-    <option>Freeze</option>
-    <option>Blank Hrad</option>
-  </select>
-  
-  <div style="height:15px;"></div>
-  
-  <div id="user-info">
-Username: TaufiqDrop<br>
-User: Premium<br>
-Sender: 10
-  </div>
-  
-  <button onclick="start()">Kirim Bug</button>
-  
-  <div id="loading">Memproses 5 detik...</div>
-  <div id="success-box">
---------------------_----------------------
-𝙎𝙐𝙆𝙎𝙀𝙎 𝘽𝙐𝙂 
-𝕋𝕒𝕣𝕘𝕖𝕥: {target}
-🅃🄰🅁🄶🄴🅃 🅂🅄🄳🄰🄷 🄼🄰🄼🄿🅄🅂 𝘛𝘦𝘳𝘪𝘮𝘢 𝘬𝘢𝘴𝘪𝘩 𝘴𝘶𝘥𝘢𝘩 𝘣𝘶𝘨
--------------------------- --------------------------
+<div class="wrap">
+  <div class="bg"></div>
+
+  <div class="main">
+    <div class="app">
+
+      <!-- PROFILE -->
+      <div class="profile">
+        <div class="avatar"></div>
+        <div>
+          <div><b>Bos vezett</b></div>
+          <div class="badge">RESELLER</div>
+        </div>
+        <div style="margin-left:auto;font-size:11px;opacity:.8">
+          EXPIRES<br>2026-11-16
+        </div>
+      </div>
+
+      <!-- BANNER -->
+      <div class="banner">
+        <img src="https://i.imgur.com/9QeYH5g.jpeg" alt="banner">
+      </div>
+
+      <!-- CONTROL PANEL -->
+      <div class="panel">
+        <h3>Control Panel</h3>
+
+        <label>Target Number</label>
+        <div class="field">
+          📱
+          <input placeholder="+62xxxxxxxxxx">
+        </div>
+
+        <label>Select Bug</label>
+        <div class="field">
+          <select>
+            <option>CRASH WHATSAPP</option>
+            <option>FORCECLOSE</option>
+            <option>VIRTEX</option>
+            <option>FREEZE</option>
+            <option>DELAY INVISIBLE</option>
+          </select>
+        </div>
+
+        <button class="btn">➤ SEND BUG</button>
+      </div>
+
+    </div>
   </div>
 </div>
 
-<script>
-function start(){
-  const number = document.getElementById("number").value;
-  if(!number){ alert("Isi number dulu bre!"); return; }
-  
-  document.querySelector("button").style.display="none";
-  document.getElementById("loading").style.display="block";
-  
-  setTimeout(()=>{
-    document.getElementById("loading").style.display="none";
-    const success = document.getElementById("success-box");
-    success.style.display="block";
-    success.innerText = success.innerText.replace("{target}", number);
-  },5000); // 5 detik
-}
-</script>
-
 </body>
-</html>
+            </html>
