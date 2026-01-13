@@ -1,151 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taufiq Crasher Bug</title>
-  <link rel="icon" href="favicon.jpg" type="image/jpeg">
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-      color: #fff;
-      overflow: hidden;
-      position: relative;
-    }
+<meta charset="UTF-8">
+<title>MAFIA JORFIQ 👾😈☠️</title>
+<style>
+body, html {
+  margin:0; padding:0;
+  height:100%; width:100%;
+  font-family:Arial, sans-serif;
+  display:flex; justify-content:center; align-items:center;
+  background:url('favicon.jpg') no-repeat center center/cover;
+}
 
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: url('favicon.jpg') no-repeat center center;
-      background-size: cover;
-      filter: blur(8px);
-      z-index: -1;
-    }
+body::before {
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  backdrop-filter:blur(8px);
+  z-index:0;
+}
 
-    .center-box {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 90%;
-      max-width: 400px;
-      background: rgba(0,0,0,0.7);
-      border-radius: 15px;
-      padding: 30px;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(255,0,255,0.5);
-    }
+.card {
+  position:relative; z-index:1;
+  background:rgba(2,6,23,0.85);
+  padding:25px;
+  border-radius:12px;
+  width:320px;
+  text-align:center;
+  color:white;
+}
 
-    select, button {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 10px;
-      margin-top: 15px;
-      border: 2px solid #ff00ff;
-      background: #ff0000;
-      color: #fff;
-      cursor: pointer;
-    }
+h1 {
+  font-size:20px;
+  margin-bottom:15px;
+}
 
-    .proses-box {
-      margin-top: 20px;
-      padding: 15px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      display: none;
-    }
+input, select, button {
+  width:90%;
+  padding:8px;
+  margin:5px 0;
+  border-radius:6px;
+  border:none;
+  outline:none;
+  font-size:14px;
+}
 
-    .banner {
-      display: flex;
-      overflow-x: auto;
-      gap: 10px;
-      margin-top: 20px;
-    }
+input, select {
+  background:#111;
+  color:white;
+}
 
-    .banner div {
-      min-width: 150px;
-      height: 100px;
-      background: #222;
-      border-radius: 10px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      cursor: pointer;
-      position: relative;
-    }
+button {
+  background:#22c55e;
+  color:black;
+  cursor:pointer;
+  font-weight:bold;
+}
 
-    .banner div span {
-      position: absolute;
-      bottom: 5px;
-      font-size: 12px;
-      color: #ff0;
-    }
+#loading {
+  display:none;
+  margin-top:15px;
+}
 
-    .account-info {
-      margin-top: 20px;
-      background: rgba(255,255,255,0.1);
-      padding: 15px;
-      border-radius: 10px;
-    }
-  </style>
+#user-info {
+  background:#111;
+  padding:10px;
+  border-radius:8px;
+  margin-top:15px;
+  text-align:left;
+  font-size:13px;
+  line-height:1.5;
+}
+
+#success-box {
+  display:none;
+  background:#1e293b;
+  padding:15px;
+  border-radius:10px;
+  margin-top:15px;
+  font-size:13px;
+  white-space:pre-line;
+  line-height:1.4;
+}
+</style>
 </head>
 <body>
 
-  <div class="center-box">
-    <h2>Select Bug by Taufiq Crasher</h2>
-    <select id="bugSelect">
-      <option value="Delay Invisible">Delay Invisible</option>
-      <option value="Crash">Crash</option>
-      <option value="Forclose">Forclose</option>
-      <option value="Blank Hard">Blank Hard</option>
-    </select>
-    <button id="sendBugBtn">Send Bug</button>
-
-    <div class="proses-box" id="prosesBox">
-      <p>Proses... 5 detik</p>
-    </div>
-
-    <div class="banner" id="bannerContainer">
-      <div>Bug <span>Banner 1</span></div>
-      <div>Crash V1 <span>Banner 2</span></div>
-      <div>Delay Invisible <span>Banner 3</span></div>
-      <div>Forclose <span>Banner 4</span></div>
-    </div>
-
-    <div class="account-info">
-      <p>User: *********</p>
-      <p>Status: Premium</p>
-    </div>
+<div class="card">
+  <h1>MAFIA JORFIQ 👾😈☠️</h1>
+  <input type="text" placeholder="𝙽𝚞𝚖𝚋𝚎𝚛: {ini wajib diisi}" id="number">
+  <select id="bug-select">
+    <option>𝐒𝐞𝐥𝐞𝐜𝐭 𝐛𝐮𝐠👾</option>
+    <option>Bug 1</option>
+    <option>Bug 2</option>
+    <option>Bug 3</option>
+  </select>
+  
+  <div style="height:15px;"></div>
+  
+  <div id="user-info">
+Username: TaufiqDrop<br>
+User: Premium<br>
+Sender: 10
   </div>
+  
+  <button onclick="start()">Kirim Bug</button>
+  
+  <div id="loading">Memproses 5 detik...</div>
+  <div id="success-box">
+--------------------_----------------------
+𝙎𝙐𝙆𝙎𝙀𝙎 𝘽𝙐𝙂 
+𝕋𝕒𝕣𝕘𝕖𝕥: {target}
+🅃🄰🅁🄶🄴🅃 🅂🅄🄳🄰🄷 🄼🄰🄼🄿🅄🅂 𝘛𝘦𝘳𝘪𝘮𝘢 𝘬𝘢𝘴𝘪𝘩 𝘴𝘶𝘥𝘢𝘩 𝘣𝘶𝘨
+-------------------------- --------------------------
+  </div>
+</div>
 
-  <script>
-    const sendBtn = document.getElementById('sendBugBtn');
-    const prosesBox = document.getElementById('prosesBox');
-
-    sendBtn.addEventListener('click', () => {
-      prosesBox.style.display = 'block';
-      prosesBox.querySelector('p').textContent = 'Proses... 5 detik';
-      setTimeout(() => {
-        prosesBox.querySelector('p').textContent = 'SUKSES 👍 Target Sudah ketar ketir\nTerima Kasih sudah bug di Taufiq Crasher';
-      }, 5000);
-    });
-
-    // Banner bisa di klik
-    const banners = document.querySelectorAll('.banner div');
-    banners.forEach(b => {
-      b.addEventListener('click', () => {
-        alert('Banner: ' + b.textContent.trim());
-      });
-    });
-  </script>
+<script>
+function start(){
+  const number = document.getElementById("number").value;
+  if(!number){ alert("Isi number dulu bre!"); return; }
+  
+  document.querySelector("button").style.display="none";
+  document.getElementById("loading").style.display="block";
+  
+  setTimeout(()=>{
+    document.getElementById("loading").style.display="none";
+    const success = document.getElementById("success-box");
+    success.style.display="block";
+    success.innerText = success.innerText.replace("{target}", number);
+  },5000); // 5 detik
+}
+</script>
 
 </body>
 </html>
