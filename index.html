@@ -7,9 +7,10 @@
 html, body {
   margin:0; padding:0;
   height:100%; width:100%;
-  font-family:Arial, sans-serif;
   display:flex; justify-content:center; align-items:center;
+  font-family:Arial, sans-serif;
   background:url('favicon.jpg') no-repeat center center/cover;
+  overflow:hidden;
 }
 
 body::before {
@@ -25,8 +26,7 @@ body::before {
   background:rgba(2,6,23,0.85);
   padding:20px;
   border-radius:12px;
-  width:90%;
-  max-width:360px; /* compact mobile look */
+  width:360px; /* fixed HP width */
   text-align:center;
   color:white;
   box-sizing:border-box;
@@ -38,7 +38,7 @@ h1 {
 }
 
 input, select, button {
-  width:90%;
+  width:100%;
   padding:8px;
   margin:5px 0;
   border-radius:6px;
