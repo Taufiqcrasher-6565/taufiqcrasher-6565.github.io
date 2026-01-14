@@ -7,30 +7,31 @@
 
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="favicon.jpg">
+<link rel="manifest" href="manifest.json">
 
 <style>
+*{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
   background:url('favicon.jpg') no-repeat center/cover fixed;
+  height:100vh;
 }
 body::before{
   content:"";
-  position:fixed;
-  inset:0;
+  position:fixed; inset:0;
   backdrop-filter:blur(8px);
   background:rgba(0,0,0,.6);
 }
 .box{
-  position:relative;
-  z-index:1;
+  position:relative; z-index:1;
   max-width:380px;
-  margin:100px auto;
+  margin:110px auto;
   padding:20px;
   background:rgba(255,255,255,.12);
   border-radius:15px;
-  color:#fff;
   text-align:center;
+  color:#fff;
 }
 input,button{
   width:90%;
@@ -41,39 +42,33 @@ input,button{
   font-size:15px;
 }
 button{
-  background:#1abc9c;
+  background:#e74c3c;
   color:#fff;
   font-weight:bold;
 }
 #error{
   display:none;
   color:red;
-  margin-top:10px;
+  margin-top:8px;
 }
 .top-right{
   position:fixed;
-  top:10px;
-  right:10px;
-  width:45px;
-  height:45px;
+  top:10px; right:10px;
+  width:45px; height:45px;
   border-radius:50%;
 }
 </style>
 </head>
 
 <body>
-
 <img src="favicon.jpg" class="top-right">
 
 <div class="box">
   <h2>LOGIN PANEL</h2>
-
   <input id="username" placeholder="Username">
   <input id="password" type="password" placeholder="Password">
   <input id="key" type="password" placeholder="Key (wajib)">
-
   <button onclick="login()">LOGIN</button>
-
   <div id="error">Login salah...</div>
 </div>
 
@@ -85,17 +80,19 @@ function login(){
   const p = password.value.trim();
   const k = key.value.trim();
 
-  // SALAH / KOSONG → TAMPILKAN TEKS, BUKAN POPUP
   if(!u || !p || !k || k !== OWNER_KEY){
     error.style.display = "block";
     return;
   }
 
-  // BENAR
   localStorage.setItem("login","yes");
   location.replace("index.html");
 }
-</script>
 
+// auto-install SW (optional)
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+</script>
 </body>
 </html>
