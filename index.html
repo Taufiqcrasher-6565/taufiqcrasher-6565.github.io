@@ -2,137 +2,129 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>MAFIA JORFIQ 👾😈☠️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bug App TAUFIQ CRASHER</title>
 <style>
-*{box-sizing:border-box}
-html,body{
-  margin:0;height:100%;
-  background:#000;
-  font-family:Arial, sans-serif;
-  overflow:hidden; /* kunci supaya ga melebar */
-}
-
-/* ===== VIDEO STYLE (blur kiri kanan) ===== */
-.wrap{position:relative;height:100vh;overflow:hidden}
-.bg{
-  position:absolute; inset:0;
-  background:linear-gradient(180deg,#6d28d9,#1e003a);
-  filter:blur(28px) brightness(.55);
-  transform:scale(1.2);
-}
-.main{
-  position:relative; z-index:2;
-  display:flex; justify-content:center;
-}
-
-/* ===== APP HP (TERKUNCI) ===== */
-.app{
-  width:360px; min-width:360px; max-width:360px;
-  min-height:100vh;
-  padding:14px;
-  background:linear-gradient(180deg,#2a0a4a,#12071f);
-  color:#fff;
-}
-
-/* ===== PROFILE ===== */
-.profile{
-  background:linear-gradient(135deg,#a855f7,#7c3aed);
-  border-radius:14px;
-  padding:12px;
-  display:flex; align-items:center; gap:10px;
-}
-.avatar{
-  width:44px;height:44px;border-radius:50%;
-  background:#000;
-}
-.badge{
-  font-size:11px;background:rgba(0,0,0,.3);
-  padding:3px 8px;border-radius:20px;
-}
-
-/* ===== BANNER ===== */
-.banner{margin:14px 0;border-radius:16px;overflow:hidden}
-.banner img{width:100%;display:block}
-
-/* ===== PANEL ===== */
-.panel{
-  background:rgba(255,255,255,.05);
-  border-radius:16px;
-  padding:14px;
-}
-.panel h3{margin:0 0 10px;font-size:15px;opacity:.9}
-label{font-size:12px;opacity:.8}
-.field{
-  background:#000;border-radius:10px;
-  padding:10px;margin:6px 0 12px;
-  display:flex;align-items:center;gap:8px;
-}
-.field input,.field select{
-  flex:1;background:none;border:none;outline:none;
-  color:#fff;font-size:14px;
-}
-
-/* ===== BUTTON ===== */
-.btn{
-  margin-top:12px;width:100%;padding:12px;
-  border:none;border-radius:14px;
-  background:linear-gradient(135deg,#c084fc,#a855f7);
-  color:#000;font-weight:bold;cursor:pointer;
-}
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('favicon.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  /* blur background */
+  body::before {
+    content: "";
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    backdrop-filter: blur(5px);
+    z-index:-1;
+  }
+  .container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    text-align: center;
+    color: #fff;
+  }
+  .banner {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+  }
+  input, select, button {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+  }
+  button {
+    background: #1abc9c;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  #overlay {
+    display: none;
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column;
+  }
+  .success-box {
+    background: rgba(0,0,0,0.8);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+  }
+  .top-right-img {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
 </style>
 </head>
 <body>
 
-<div class="wrap">
-  <div class="bg"></div>
+<img src="favicon.jpg" class="top-right-img" alt="Foto">
 
-  <div class="main">
-    <div class="app">
-
-      <!-- PROFILE -->
-      <div class="profile">
-        <div class="avatar"></div>
-        <div>
-          <div><b>Bos vezett</b></div>
-          <div class="badge">RESELLER</div>
-        </div>
-        <div style="margin-left:auto;font-size:11px;opacity:.8">
-          EXPIRES<br>2026-11-16
-        </div>
-      </div>
-
-      <!-- BANNER (LOKAL) -->
-      <div class="banner">
-        <img src="banner1.jpg" alt="banner">
-      </div>
-
-      <!-- CONTROL PANEL -->
-      <div class="panel">
-        <h3>Control Panel</h3>
-
-        <label>Target Number</label>
-        <div class="field">
-          📱
-          <input placeholder="+62xxxxxxxxxx">
-        </div>
-
-        <label>Select Bug</label>
-        <div class="field">
-          <select>
-            <option>CRASH WHATSAPP</option>
-            <option>FORCECLOSE</option>
-            <option>VIRTEX</option>
-            <option>FREEZE</option>
-            <option>BLANK HRAD</option>
-          </select>
-        </div>
-
-        <button class="btn">➤ SEND BUG</button>
-      </div>
-
-    </div>
-  </div>
+<div class="container">
+  <img src="banner1.jpg" class="banner" alt="Banner">
+  <h2>Bug App TAUFIQ CRASHER</h2>
+  <input type="text" id="nomer" placeholder="Masukkan nomor">
+  <select id="bugSelect">
+    <option value="">Pilih Bug</option>
+    <option value="Crash">Crash</option>
+    <option value="Virtex">Virtex</option>
+    <option value="Forclose">Forclose</option>
+    <option value="Blank hard">Blank hard</option>
+  </select>
+  <button onclick="prosesBug()">Kirim Bug</button>
 </div>
 
+<div id="overlay">
+  <div class="success-box">Proses 3 detik...</div>
+</div>
+
+<script>
+function prosesBug() {
+  const overlay = document.getElementById('overlay');
+  const nomer = document.getElementById('nomer').value.trim();
+  const bug = document.getElementById('bugSelect').value;
+
+  if(!nomer) {
+    alert("Masukkan nomor dulu cok!");
+    return;
+  }
+
+  if(!bug) {
+    alert("Pilih bug dulu cok!");
+    return;
+  }
+
+  overlay.style.display = 'flex'; // munculin overlay
+  overlay.querySelector('.success-box').textContent = 'Proses 3 detik...';
+
+  setTimeout(() => {
+    overlay.querySelector('.success-box').innerHTML = 
+      '𝗦𝗨𝗞𝗦𝗘𝗦<br>Ⓣⓔⓡⓘⓜⓐ ⓚⓐⓢⓘⓗ ⓢⓤⓓⓐⓗ ⓑⓤⓖ ⓓⓘ ⓣⓐⓤⓕⓘⓠⓒⓡⓐⓗⓢⓔⓡ<br><br>' +
+      'Nomor: ' + nomer + '<br>' +
+      'Bug: ' + bug;
+  }, 3000);
+}
+</script>
+
 </body>
-          </html>
+  </html>
