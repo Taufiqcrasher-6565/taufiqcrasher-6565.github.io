@@ -3,95 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Secure Login</title>
-
-<meta name="robots" content="noindex,nofollow">
+<title>bug login</title>
 <link rel="icon" href="favicon.jpg">
 <link rel="manifest" href="manifest.json">
-
 <style>
-*{box-sizing:border-box}
 body{
   margin:0;
   font-family:Arial,sans-serif;
   background:url('favicon.jpg') no-repeat center/cover fixed;
-  height:100vh;
+  backdrop-filter:blur(5px);
+  color:#e74c3c;
 }
-body::before{
-  content:"";
-  position:fixed; inset:0;
-  backdrop-filter:blur(8px);
-  background:rgba(0,0,0,.6);
-}
-.box{
-  position:relative; z-index:1;
-  max-width:380px;
-  margin:110px auto;
+.container{
+  max-width:400px;
+  margin:80px auto;
   padding:20px;
-  background:rgba(255,255,255,.12);
+  background:rgba(0,0,0,.6);
   border-radius:15px;
   text-align:center;
-  color:#fff;
 }
-input,button{
-  width:90%;
+input{
+  width:80%;
   padding:10px;
-  margin:8px 0;
-  border:none;
+  margin:10px 0;
   border-radius:10px;
-  font-size:15px;
+  border:none;
 }
 button{
+  padding:10px 20px;
+  border:none;
+  border-radius:10px;
   background:#e74c3c;
   color:#fff;
   font-weight:bold;
+  cursor:pointer;
 }
 #error{
-  display:none;
-  color:red;
-  margin-top:8px;
-}
-.top-right{
-  position:fixed;
-  top:10px; right:10px;
-  width:45px; height:45px;
-  border-radius:50%;
+  color:#e74c3c;
+  margin-top:10px;
 }
 </style>
 </head>
-
 <body>
-<img src="favicon.jpg" class="top-right">
-
-<div class="box">
-  <h2>LOGIN PANEL</h2>
-  <input id="username" placeholder="Username">
-  <input id="password" type="password" placeholder="Password">
-  <input id="key" type="password" placeholder="Key (wajib)">
-  <button onclick="login()">LOGIN</button>
-  <div id="error">Login salah...</div>
+<div class="container">
+  <h2>Login PANEL</h2>
+  <input type="text" id="username" placeholder="Username"><br>
+  <input type="password" id="password" placeholder="Password"><br>
+  <input type="text" id="key" placeholder="Key"><br>
+  <button onclick="login()">Login</button>
+  <div id="error"></div>
 </div>
 
 <script>
-const OWNER_KEY = "Adminlicu./git";
-
 function login(){
-  const u = username.value.trim();
-  const p = password.value.trim();
-  const k = key.value.trim();
+  const user = document.getElementById('username').value.trim();
+  const pass = document.getElementById('password').value.trim();
+  const key = document.getElementById('key').value.trim();
 
-  if(!u || !p || !k || k !== OWNER_KEY){
-    error.style.display = "block";
-    return;
+  if(user === "admin" && pass === "1234" && key === "Adminlicu./git"){
+    window.location.href = "index.html";
+  } else {
+    document.getElementById('error').innerText = "Login salah, cek username/password/key!";
   }
-
-  localStorage.setItem("login","yes");
-  location.replace("index.html");
-}
-
-// auto-install SW (optional)
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(()=>{});
 }
 </script>
 </body>
