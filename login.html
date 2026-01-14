@@ -3,38 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TAUFIQ CRASHER</title>
+<title>Secure Login</title>
+
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="favicon.jpg">
 
 <style>
-*{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Arial,sans-serif;
+  font-family:Arial, sans-serif;
   background:url('favicon.jpg') no-repeat center/cover fixed;
-  color:#fff;
 }
 body::before{
   content:"";
   position:fixed;
   inset:0;
-  backdrop-filter:blur(7px);
-  background:rgba(0,0,0,.5);
-  z-index:-1;
+  backdrop-filter:blur(8px);
+  background:rgba(0,0,0,.6);
 }
 .box{
-  max-width:400px;
-  margin:70px auto;
+  position:relative;
+  z-index:1;
+  max-width:380px;
+  margin:100px auto;
   padding:20px;
   background:rgba(255,255,255,.12);
   border-radius:15px;
+  color:#fff;
   text-align:center;
 }
-.banner{
-  width:100%;
-  border-radius:12px;
-  margin-bottom:10px;
-}
-input,select,button{
+input,button{
   width:90%;
   padding:10px;
   margin:8px 0;
@@ -47,30 +45,17 @@ button{
   color:#fff;
   font-weight:bold;
 }
-#app{display:none}
-#overlay{
+#error{
   display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.7);
-  justify-content:center;
-  align-items:center;
-  z-index:10;
+  color:red;
+  margin-top:10px;
 }
-.success-box{
-  background:#000;
-  padding:25px;
-  border-radius:15px;
-  text-align:center;
-  font-size:17px;
-  color:red; /* text sukses merah */
-}
-.top-right-img{
+.top-right{
   position:fixed;
   top:10px;
   right:10px;
-  width:50px;
-  height:50px;
+  width:45px;
+  height:45px;
   border-radius:50%;
 }
 </style>
@@ -78,36 +63,18 @@ button{
 
 <body>
 
-<img src="favicon.jpg" class="top-right-img">
+<img src="favicon.jpg" class="top-right">
 
-<!-- LOGIN -->
-<div class="box" id="loginBox">
+<div class="box">
   <h2>LOGIN PANEL</h2>
+
   <input id="username" placeholder="Username">
   <input id="password" type="password" placeholder="Password">
   <input id="key" type="password" placeholder="Key (wajib)">
+
   <button onclick="login()">LOGIN</button>
-</div>
 
-<!-- APP -->
-<div class="box" id="app">
-  <img src="banner1.jpg" class="banner">
-  <h3>TAUFIQ CRASHER</h3>
-
-  <input id="nomer" placeholder="Masukkan nomor">
-  <select id="bugSelect">
-    <option value="">Pilih Bug</option>
-    <option>Crash</option>
-    <option>Virtex</option>
-    <option>Forclose</option>
-    <option>Blank hard</option>
-  </select>
-  <button onclick="prosesBug()">Kirim Bug</button>
-</div>
-
-<!-- OVERLAY -->
-<div id="overlay">
-  <div class="success-box" id="successText">Proses 3 detik...</div>
+  <div id="error">Login salah...</div>
 </div>
 
 <script>
@@ -118,37 +85,17 @@ function login(){
   const p = password.value.trim();
   const k = key.value.trim();
 
-  if(!u || !p || !k){
-    alert("Lengkapi semua data!");
-    return;
-  }
-  if(k !== OWNER_KEY){
-    alert("KEY SALAH! HUBUNGI OWNER");
+  // SALAH / KOSONG → TAMPILKAN TEKS, BUKAN POPUP
+  if(!u || !p || !k || k !== OWNER_KEY){
+    error.style.display = "block";
     return;
   }
 
-  // redirect langsung ke index.html setelah login sukses
-  window.location.href = "index.html";
-}
-
-function prosesBug(){
-  const n = nomer.value.trim();
-  const b = bugSelect.value;
-
-  if(!n) return alert("Masukkan nomor dulu!");
-  if(!b) return alert("Pilih bug dulu!");
-
-  overlay.style.display="flex";
-  successText.innerHTML="Proses 3 detik...";
-
-  setTimeout(()=>{
-    successText.innerHTML=
-      "𝗦𝗨𝗞𝗦𝗘𝗦<br>" +
-      "Ⓣⓔⓡⓘⓜⓐ ⓚⓐⓢⓘⓗ ⓢⓤⓓⓐⓗ ⓑⓤⓖ ⓓⓘ ⓣⓐⓤⓕⓘⓠⓒⓡⓐⓗⓢⓔⓡ<br><br>" +
-      "Nomor: "+n+"<br>Bug: "+b;
-  },3000);
+  // BENAR
+  localStorage.setItem("login","yes");
+  location.replace("index.html");
 }
 </script>
 
 </body>
-  </html>
+</html>
