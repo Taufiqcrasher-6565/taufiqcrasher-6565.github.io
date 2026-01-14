@@ -1,28 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link rel="stylesheet" href="login.css">
-  <link rel="icon" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAUFIQ CRASHER</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:url('favicon.jpg') no-repeat center/cover fixed;
+  color:#fff;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  backdrop-filter:blur(7px);
+  background:rgba(0,0,0,.5);
+  z-index:-1;
+}
+.box{
+  max-width:400px;
+  margin:70px auto;
+  padding:20px;
+  background:rgba(255,255,255,.12);
+  border-radius:15px;
+  text-align:center;
+}
+.banner{
+  width:100%;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+input,select,button{
+  width:90%;
+  padding:10px;
+  margin:8px 0;
+  border:none;
+  border-radius:10px;
+  font-size:15px;
+}
+button{
+  background:#1abc9c;
+  color:#fff;
+  font-weight:bold;
+}
+#app{display:none}
+#overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  justify-content:center;
+  align-items:center;
+  z-index:10;
+}
+.success-box{
+  background:#000;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+  font-size:17px;
+  color:red; /* text sukses merah */
+}
+.top-right-img{
+  position:fixed;
+  top:10px;
+  right:10px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+}
+</style>
 </head>
+
 <body>
-  <div class="login-container">
-    <h2>Login</h2>
 
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <input type="text" id="key" placeholder="Key Access">
+<img src="favicon.jpg" class="top-right-img">
 
-    <button class="btn login-btn" onclick="checkLogin()">Login</button>
+<!-- LOGIN -->
+<div class="box" id="loginBox">
+  <h2>LOGIN PANEL</h2>
+  <input id="username" placeholder="Username">
+  <input id="password" type="password" placeholder="Password">
+  <input id="key" type="password" placeholder="Key (wajib)">
+  <button onclick="login()">LOGIN</button>
+</div>
 
-    <!-- TULISAN TAMBAHAN -->
-    <p class="info-text">
-      Login harus menggunakan <b>username, password, dan key</b><br>
-      yang sudah diberikan oleh <b>owner</b>.
-    </p>
-  </div>
+<!-- APP -->
+<div class="box" id="app">
+  <img src="banner1.jpg" class="banner">
+  <h3>TAUFIQ CRASHER</h3>
 
-  <script src="login.js"></script>
+  <input id="nomer" placeholder="Masukkan nomor">
+  <select id="bugSelect">
+    <option value="">Pilih Bug</option>
+    <option>Crash</option>
+    <option>Virtex</option>
+    <option>Forclose</option>
+    <option>Blank hard</option>
+  </select>
+  <button onclick="prosesBug()">Kirim Bug</button>
+</div>
+
+<!-- OVERLAY -->
+<div id="overlay">
+  <div class="success-box" id="successText">Proses 3 detik...</div>
+</div>
+
+<script>
+const OWNER_KEY = "Adminlicu./git";
+
+function login(){
+  const u = username.value.trim();
+  const p = password.value.trim();
+  const k = key.value.trim();
+
+  if(!u || !p || !k){
+    alert("Lengkapi semua data!");
+    return;
+  }
+  if(k !== OWNER_KEY){
+    alert("KEY SALAH! HUBUNGI OWNER");
+    return;
+  }
+
+  // redirect langsung ke index.html setelah login sukses
+  window.location.href = "index.html";
+}
+
+function prosesBug(){
+  const n = nomer.value.trim();
+  const b = bugSelect.value;
+
+  if(!n) return alert("Masukkan nomor dulu!");
+  if(!b) return alert("Pilih bug dulu!");
+
+  overlay.style.display="flex";
+  successText.innerHTML="Proses 3 detik...";
+
+  setTimeout(()=>{
+    successText.innerHTML=
+      "𝗦𝗨𝗞𝗦𝗘𝗦<br>" +
+      "Ⓣⓔⓡⓘⓜⓐ ⓚⓐⓢⓘⓗ ⓢⓤⓓⓐⓗ ⓑⓤⓖ ⓓⓘ ⓣⓐⓤⓕⓘⓠⓒⓡⓐⓗⓢⓔⓡ<br><br>" +
+      "Nomor: "+n+"<br>Bug: "+b;
+  },3000);
+}
+</script>
+
 </body>
-</html>
+  </html>
