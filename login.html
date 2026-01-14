@@ -3,20 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>bug login</title>
-<link rel="icon" href="favicon.jpg">
+<title>TaufiqCrasher Login</title>
 <link rel="manifest" href="manifest.json">
+<link rel="icon" href="favicon.jpg">
 <style>
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
+body {
+  margin:0; font-family:Arial,sans-serif;
   background:url('favicon.jpg') no-repeat center/cover fixed;
-  backdrop-filter:blur(5px);
+  backdrop-filter: blur(5px);
   color:#e74c3c;
 }
 .container{
   max-width:400px;
-  margin:80px auto;
+  margin:50px auto;
   padding:20px;
   background:rgba(0,0,0,.6);
   border-radius:15px;
@@ -35,35 +34,32 @@ button{
   border-radius:10px;
   background:#e74c3c;
   color:#fff;
-  font-weight:bold;
   cursor:pointer;
-}
-#error{
-  color:#e74c3c;
-  margin-top:10px;
+  font-weight:bold;
 }
 </style>
 </head>
 <body>
 <div class="container">
-  <h2>Login PANEL</h2>
+  <h2>Login TaufiqCrasher</h2>
   <input type="text" id="username" placeholder="Username"><br>
   <input type="password" id="password" placeholder="Password"><br>
   <input type="text" id="key" placeholder="Key"><br>
   <button onclick="login()">Login</button>
-  <div id="error"></div>
+  <p id="msg"></p>
 </div>
 
 <script>
 function login(){
-  const user = document.getElementById('username').value.trim();
-  const pass = document.getElementById('password').value.trim();
-  const key = document.getElementById('key').value.trim();
+  const u = document.getElementById('username').value.trim();
+  const p = document.getElementById('password').value.trim();
+  const k = document.getElementById('key').value.trim();
+  const msg = document.getElementById('msg');
 
-  if(user === "admin" && pass === "1234" && key === "Adminlicu./git"){
-    window.location.href = "index.html";
+  if(u==="Admin" && p==="Admin123" && k==="Adminlicu./git"){
+    window.location.href="index.html";
   } else {
-    document.getElementById('error').innerText = "Login salah, cek username/password/key!";
+    msg.textContent="Login salah...";
   }
 }
 </script>
